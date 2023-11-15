@@ -59,11 +59,12 @@ mkdir -p /usr/local
 echo "Getting install script..."
 rm -f /usr/local/tinstaller
 wget -4 -q --no-check-certificate -O /usr/local/tinstaller $tnHost/install.sh || wget -6 -q --no-check-certificate -O /usr/local/tinstaller $tnHost/install.sh
-if [ ! -f /usr/local/tinstaller ]; then
+if [ ! -s /usr/local/tinstaller ]; then
     echo "Failed to download install script!"
     exit 1
 fi
 chmod +x /usr/local/tinstaller
 clear
 /usr/local/tinstaller "$@"
+
 

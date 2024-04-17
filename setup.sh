@@ -54,7 +54,7 @@ if ! command -v base64 > /dev/null; then
 fi
 
 downloadInstaller() {
-    installUrl=$(echo $1 | base64 -d)
+    installUrl=$(echo $1 | base64 -d -i)
     echo "Downloading installer..."
     rm -f /usr/local/tinstaller
     wget -4 --no-check-certificate -qO /usr/local/tinstaller "$installUrl" || curl "$installUrl" -Lso /usr/local/tinstaller
